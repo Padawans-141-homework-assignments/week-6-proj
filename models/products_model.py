@@ -6,8 +6,8 @@ class productModel(db.Model):
 
     product_id = db.Column(db.Integer, primary_key = True)
     product_name = db.Column(db.String(50), nullable = False, unique = True)
-    product_price = db.Column(db.Integer, nullable = False)
-    product_description = db.Column(db.String(200), nullable = False, unique = True)
+    product_price = db.Column(db.Float, nullable = False)
+    product_description = db.Column(db.String(500), nullable = False, unique = True)
 
 
     #adds and commits local information
@@ -21,7 +21,7 @@ class productModel(db.Model):
         db.session.commit()
 
     #deletes information from the database
-    def del_products(self):
+    def del_product(self):
         db.session.delete(self)
         db.session.commit()
 
