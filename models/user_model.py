@@ -3,12 +3,14 @@ from app import db
 
 class userModel(db.Model):
 
+    #sets table name
     __tablename__ = 'users'
 
+    #sets outline for table
     user_id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(25), nullable = False, unique = True)
     email = db.Column(db.String(50), nullable = False, unique = True)
-    password = db.Column(db.String(20), nullable = False, unique = False)
+    password = db.Column(db.String, nullable = False, unique = False)
     first_name = db.Column(db.String(20), nullable = False, unique = False)
     last_name = db.Column(db.String(20), nullable = False, unique = False)
 
@@ -33,7 +35,9 @@ class userModel(db.Model):
             if k != 'password':
                 setattr(self, k, v)	##sets attribute
             else:
-                setattr(self, 'password_hash', generate_password_hash(v))
+                setattr(self, 'password', generate_password_hash(v))
 
+    #checks object password against password passed in as argument with the 
+    #check_password_hash functionallity.
     def check_usr_password(self, password):
-        return check_password_hash(self.password_hash, password)
+        return check_password_hash(self.password, password)

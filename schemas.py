@@ -14,7 +14,7 @@ class productsSchema(Schema):
     product_price = fields.Float(required=True)
     product_description = fields.Str(required=True)
 
-#schema for the user model
+#schema for the user table and loginandout resource
 class userSchema(Schema):
     user_id = fields.Int(dump_only=True)
     username = fields.Str(required=True)

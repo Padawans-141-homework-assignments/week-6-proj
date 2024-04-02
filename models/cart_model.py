@@ -1,8 +1,11 @@
 from app import db
 
 class cartModel(db.Model):
+
+    #sets table name
     __tablename__ = 'cart'
 
+    #sets table outline
     item_id = db.Column(db.Integer, primary_key= True)
     item_name = db.Column(db.String(50), nullable = False)
     quantity = db.Column(db.Integer, nullable = False)
