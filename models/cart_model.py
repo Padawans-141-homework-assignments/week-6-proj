@@ -3,9 +3,10 @@ from app import db
 class cartModel(db.Model):
     __tablename__ = 'cart'
 
-    item_in_cart = db.Column(db.Integer, primary_key= True)
+    item_id = db.Column(db.Integer, primary_key= True)
     item_name = db.Column(db.String(50), nullable = False)
     quantity = db.Column(db.Integer, nullable = False)
+    item_price = db.Column(db.Float, nullable = False)
 
     #adds and commits local information
     def add_2_cart(self):

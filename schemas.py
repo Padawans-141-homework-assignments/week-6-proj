@@ -2,9 +2,10 @@ from marshmallow import Schema, fields
 
 #schema for the cart model
 class cartSchema(Schema):
-    item_in_cart = fields.Int(dump_only=True)
+    item_id = fields.Int(dump_only=True)
     item_name = fields.Str(required=True)
     quantity = fields.Int(required = True)
+    item_price = fields.Float(required = True)
 
 #schema for the products model
 class productsSchema(Schema):
